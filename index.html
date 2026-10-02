@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ШинаДрайв — летние и зимние шины для легковых авто</title>
+<meta name="description" content="Подберём шины для вашего авто за минуту: по марке и модели или по размеру. Летние и зимние, шипованные и нешипованные шины ведущих производителей.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ШинаДрайв — шины для вашего авто">
+<meta property="og:description" content="Летние и зимние шины для легковых автомобилей. Удобный подбор по авто и по размеру.">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#1E2A38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E2A38; --ink-2:#26364a; --accent:#FF7A1A; --accent-d:#F06A0A;
+  --summer:#FFC93C; --winter:#4DA8F0; --bg:#F6F7F9; --card:#fff;
+  --text:#2B2B2B; --muted:#5F6673; --line:#E3E7EC;
+  --r:14px; --r-sm:10px; --shadow:0 6px 24px rgba(30,42,56,.08); --shadow-h:0 12px 32px rgba(30,42,56,.14);
+  --hh:68px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px)}
+body{margin:0;font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.5;color:var(--text);background:var(--bg);padding-top:var(--hh)}
+body.lock{overflow:hidden}
+img,svg{display:block}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+h1,h2,h3{color:var(--ink);line-height:1.2;margin:0;font-weight:800}
+.container{width:100%;max-width:1320px;margin:0 auto;padding:0 16px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 20px;font-weight:700;transition:transform .15s,background .2s,box-shadow .2s;text-decoration:none;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:var(--ink);box-shadow:0 6px 16px rgba(255,122,26,.35)}
+.btn-primary:hover{background:#FF8A33}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.link-btn{background:none;border:0;padding:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Header ---------- */
+.header{position:fixed;inset:0 0 auto;height:var(--hh);background:var(--ink);color:#fff;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.header .container{display:flex;align-items:center;height:100%;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:20px;color:#fff;margin-right:auto}
+.logo svg{width:36px;height:36px;transition:transform .6s}
+.logo:hover svg{transform:rotate(180deg)}
+.logo b{color:var(--accent)}
+.nav{display:flex;gap:4px}
+.nav a{color:#E7ECF2;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:600}
+.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.08);color:#fff}
+.icon-btn:hover{background:rgba(255,255,255,.16)}
+.icon-btn svg{width:22px;height:22px}
+.badge-count{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--accent);color:var(--ink);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.badge-count[hidden]{display:none}
+.bump{animation:bump .5s}
+@keyframes bump{30%{transform:scale(1.35)}60%{transform:scale(.9)}}
+.burger{display:none}
+@media (max-width:767px){
+  .burger{display:inline-flex}
+  .nav{position:absolute;top:var(--hh);left:0;right:0;flex-direction:column;background:var(--ink);padding:8px 16px 16px;box-shadow:0 12px 20px rgba(0,0,0,.2);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:12px 14px}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background-color:var(--ink);
+  background-image:
+    linear-gradient(135deg,rgba(255,255,255,.035) 25%,transparent 25%),
+    linear-gradient(225deg,rgba(255,255,255,.035) 25%,transparent 25%),
+    linear-gradient(315deg,rgba(255,255,255,.035) 25%,transparent 25%),
+    linear-gradient(45deg,rgba(255,255,255,.035) 25%,transparent 25%);
+  background-size:44px 44px;background-position:0 0,0 0,22px 22px,22px 22px;
+  padding:48px 0 0}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:80px;background:linear-gradient(transparent,rgba(0,0,0,.25))}
+.hero-grid{position:relative;z-index:1;display:grid;gap:32px;align-items:center;padding-bottom:56px}
+.hero h1{color:#fff;font-size:clamp(30px,5vw,52px);letter-spacing:-.02em}
+.hero h1 span{color:var(--accent)}
+.hero-lead{font-size:18px;color:#D3DAE3;margin:16px 0 24px;max-width:520px}
+.hero-points{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.hero-points li{display:flex;gap:10px;align-items:center;color:#E7ECF2;font-weight:600}
+.hero-points li::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(255,122,26,.18);color:var(--accent);font-weight:800;font-size:14px;flex:none}
+.starter{display:flex;align-items:flex-end;gap:12px;margin-top:20px}
+.starter-girl{width:190px;height:auto;flex:none;overflow:visible}
+.flag-arm{transform-box:view-box;transform-origin:144px 112px;animation:wave 2.4s ease-in-out infinite}
+@keyframes wave{50%{transform:rotate(-7deg)}}
+.bubble{position:relative;background:#fff;color:var(--ink);font-weight:800;font-size:18px;line-height:1.35;padding:14px 18px;border-radius:18px 18px 18px 4px;box-shadow:0 10px 24px rgba(0,0,0,.25);margin-bottom:120px}
+.bubble span{font-weight:600;font-size:15px;color:var(--muted)}
+.bubble::before{content:"";position:absolute;left:-8px;bottom:0;border:8px solid transparent;border-right-color:#fff;border-bottom-color:#fff}
+@media (max-width:575px){.starter-girl{width:140px}.bubble{font-size:16px;margin-bottom:80px}}
+.hero-tire{position:absolute;right:-140px;bottom:-160px;width:520px;height:520px;opacity:.12;animation:roll 40s linear infinite;pointer-events:none}
+@keyframes roll{to{transform:rotate(360deg)}}
+@media (min-width:992px){.hero-grid{grid-template-columns:1.05fr 1fr;gap:56px}.hero{padding-top:72px}.hero-grid{padding-bottom:88px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.road{height:16px;background-color:#2A3746;background-image:linear-gradient(90deg,var(--summer) 0 44px,transparent 44px 80px);background-size:80px 4px;background-repeat:repeat-x;background-position:0 center}
+
+/* ---------- Picker ---------- */
+.picker{background:#fff;color:var(--text);border-radius:20px;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.picker h2{font-size:20px;margin-bottom:14px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:16px}
+.tab{border:0;background:transparent;padding:10px;border-radius:9px;font-weight:700;color:var(--muted)}
+.tab[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(30,42,56,.1)}
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px}
+select,.input{width:100%;height:46px;border:2px solid var(--line);border-radius:10px;background:#fff;padding:0 12px;font-weight:600;color:var(--ink)}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231E2A38' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+select:disabled{background-color:var(--bg);color:#9AA2AD;cursor:not-allowed}
+select:hover:not(:disabled),.input:hover{border-color:#C5CCD5}
+@media (max-width:479px){.fields{grid-template-columns:1fr}}
+.seg{display:flex;background:var(--bg);border-radius:12px;padding:4px;gap:4px}
+.seg button{flex:1;border:0;background:transparent;border-radius:9px;padding:9px 8px;font-weight:700;color:var(--muted);font-size:15px}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(30,42,56,.1)}
+.seg button.on[data-season="summer"]{background:var(--summer)}
+.seg button.on[data-season="winter"]{background:var(--winter)}
+.picker .seg{margin:16px 0}
+.picker .btn-primary{width:100%;padding:15px;font-size:17px}
+.pick-msg{color:#B4410A;font-weight:700;font-size:14px;margin:10px 0 0;min-height:0}
+.pick-msg:empty{display:none}
+.hint{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+.hint summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none;display:flex;align-items:center;gap:6px}
+.hint summary::-webkit-details-marker{display:none}
+.hint summary::after{content:"＋";margin-left:auto;color:var(--muted)}
+.hint[open] summary::after{content:"－"}
+.sidewall{margin-top:12px;border-radius:120px 120px 14px 14px;background:#22282F;background-image:repeating-linear-gradient(90deg,#2a3139 0 6px,#22282F 6px 12px);padding:26px 16px 18px;text-align:center}
+.marking{font-size:28px;font-weight:800;letter-spacing:.04em;color:#E9EDF2}
+.marking span{padding:0 2px;border-bottom:3px solid}
+.m1{border-color:var(--accent)!important}.m2{border-color:var(--summer)!important}.m3{border-color:var(--winter)!important}.m4{border-color:#9BE08B!important}
+.legend{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:14px}
+.legend li{display:flex;gap:8px;align-items:flex-start}
+.legend i{width:12px;height:12px;border-radius:3px;margin-top:5px;flex:none}
+
+/* ---------- Sections ---------- */
+section{padding:56px 0}
+.section-title{font-size:clamp(26px,3.4vw,36px);margin-bottom:8px}
+.section-sub{color:var(--muted);margin:0 0 28px;font-size:17px}
+
+/* ---------- Catalog ---------- */
+.car-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;background:#FFF3E8;border:2px solid #FFD2AE;border-radius:var(--r);padding:12px 16px;margin-bottom:20px;font-weight:600;color:var(--ink)}
+.car-banner[hidden]{display:none}
+.car-banner b{font-weight:800}
+.car-banner .btn{padding:8px 14px;margin-left:auto}
+.catalog-layout{display:grid;gap:24px;align-items:start}
+@media (min-width:992px){.catalog-layout{grid-template-columns:280px 1fr}}
+
+.filters{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:20px}
+@media (min-width:992px){.filters{position:sticky;top:calc(var(--hh) + 16px);max-height:calc(100vh - var(--hh) - 32px);overflow:auto}}
+.filters-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.filters-head h3{font-size:20px}
+.fgroup{padding:16px 0;border-bottom:1px solid var(--line)}
+.fgroup:last-of-type{border-bottom:0}
+.fgroup[hidden]{display:none}
+.fgroup > .ftitle{font-weight:800;color:var(--ink);margin:0 0 10px;font-size:15px}
+.fgroup .seg button{font-size:14px;padding:8px 4px}
+.checks{display:grid;gap:4px}
+.check{display:flex;align-items:center;gap:10px;padding:6px 6px;border-radius:8px;cursor:pointer;font-weight:600}
+.check:hover{background:var(--bg)}
+.check input{width:18px;height:18px;accent-color:var(--accent);margin:0}
+.check em{margin-left:auto;font-style:normal;font-size:13px;color:var(--muted);background:var(--bg);border-radius:20px;padding:0 8px}
+.check.zero{opacity:.5}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:20px;padding:5px 12px;font-weight:700;font-size:14px;color:var(--ink)}
+.chip:hover{border-color:#C5CCD5}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.range{position:relative;height:28px;margin:4px 0 10px}
+.range .track{position:absolute;left:0;right:0;top:12px;height:4px;border-radius:2px;background:var(--line)}
+.range .fill{position:absolute;top:12px;height:4px;border-radius:2px;background:var(--accent)}
+.range input{position:absolute;left:0;top:0;width:100%;height:28px;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none}
+.range input::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:grab}
+.range input::-moz-range-thumb{pointer-events:auto;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:grab}
+.range input::-moz-range-track{background:none}
+.price-inputs label{font-size:12px;font-weight:700;color:var(--muted)}
+.price-inputs .input{height:40px}
+.filters .reset-all{width:100%;margin-top:8px}
+.sheet-head,.sheet-foot{display:none}
+
+@media (max-width:991px){
+  .filters{position:fixed;left:0;right:0;bottom:0;z-index:70;max-height:88vh;border-radius:20px 20px 0 0;padding:0;display:flex;flex-direction:column;transform:translateY(100%);visibility:hidden;transition:transform .3s,visibility 0s .3s}
+  .filters.open{transform:none;visibility:visible;transition:transform .3s}
+  .filters-head{display:none}
+  .filters-body{overflow:auto;padding:0 20px}
+  .sheet-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .sheet-head h3{font-size:20px}
+  .sheet-foot{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:12px 20px 16px;border-top:1px solid var(--line)}
+  .filters .reset-all{display:none}
+}
+
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px}
+.found{font-weight:800;color:var(--ink);font-size:18px;margin-right:auto}
+.sort{display:flex;align-items:center;gap:8px}
+.sort label{font-weight:700;color:var(--muted);font-size:14px}
+.sort select{width:auto;height:42px}
+.filters-btn{display:none;position:relative}
+.filters-btn .badge-count{top:-6px;right:-6px}
+@media (max-width:991px){.filters-btn{display:inline-flex}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tags:empty{display:none}
+.tag{display:inline-flex;align-items:center;gap:6px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:4px 6px 4px 12px;font-weight:700;font-size:14px;color:var(--ink)}
+.tag:hover{border-color:var(--accent)}
+.tag span{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--bg);align-items:center;justify-content:center;font-size:12px}
+
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:420px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media (min-width:576px){.grid{gap:16px}}
+@media (min-width:992px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;animation:appear .4s both}
+.card:hover{box-shadow:var(--shadow-h);transform:translateY(-3px)}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}}
+.card-img{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 60%,#fff 0,#EEF1F5 70%)}
+.card-img.winter{background:radial-gradient(circle at 50% 60%,#fff 0,#E3F1FC 70%)}
+.card-img.summer{background:radial-gradient(circle at 50% 60%,#fff 0,#FFF4D6 70%)}
+.card-img svg{width:68%;height:auto;filter:drop-shadow(0 8px 10px rgba(30,42,56,.25));transition:transform .5s}
+.card:hover .card-img svg{transform:rotate(25deg)}
+.badges{position:absolute;top:10px;left:10px;display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:12px;font-weight:800;padding:3px 9px;border-radius:20px;color:var(--ink);background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.badge.summer{background:var(--summer)}
+.badge.winter{background:var(--winter)}
+.badge.oos{position:absolute;right:10px;top:10px;background:#E9ECF0;color:var(--muted)}
+.card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-brand{font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card h3{font-size:17px;font-weight:800}
+.card-size{font-weight:700;color:var(--ink)}
+.card-size span{color:var(--muted);font-weight:600;font-size:14px;margin-left:6px}
+.price{font-size:22px;font-weight:800;color:var(--ink);margin-top:auto;padding-top:6px}
+.price small{font-size:14px;color:var(--muted);font-weight:600}
+.set-price{font-size:14px;color:var(--muted);font-weight:600}
+.buy{display:grid;grid-template-columns:auto 1fr;gap:8px;margin-top:8px}
+.qty{display:flex;align-items:center;border:2px solid var(--line);border-radius:10px;height:44px}
+.qty button{width:32px;height:100%;border:0;background:none;font-size:18px;font-weight:800;color:var(--ink)}
+.qty button:disabled{color:#C0C6CE;cursor:not-allowed}
+.qty output{min-width:22px;text-align:center;font-weight:800}
+.add{height:44px;padding:0 10px;font-size:15px}
+.add.in{background:var(--ink);color:#fff;box-shadow:none}
+.add:disabled{background:#E9ECF0;color:var(--muted);box-shadow:none;cursor:not-allowed}
+.add .wheel{width:18px;height:18px;flex:none}
+.add.spin .wheel{animation:spin .7s cubic-bezier(.3,.6,.4,1)}
+@keyframes spin{to{transform:rotate(720deg)}}
+@media (max-width:419px){.card{flex-direction:row}.card-img{width:40%;aspect-ratio:auto}.card-img svg{width:80%}.badges{position:static;margin-bottom:2px}.card-img .badges{display:none}}
+.mob-badges{display:none}
+@media (max-width:419px){.mob-badges{display:flex}}
+.more{display:flex;justify-content:center;margin-top:24px}
+.empty{text-align:center;background:#fff;border-radius:var(--r);padding:48px 20px;box-shadow:var(--shadow)}
+.empty[hidden]{display:none}
+.empty p{font-size:20px;font-weight:800;color:var(--ink);margin:12px 0 18px}
+
+/* ---------- Advantages ---------- */
+.adv{background:#fff}
+.adv-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:576px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:992px){.adv-grid{grid-template-columns:repeat(4,1fr)}}
+.adv-card{background:var(--bg);border-radius:var(--r);padding:24px;transition:transform .2s}
+.adv-card:hover{transform:translateY(-4px)}
+.adv-ico{width:56px;height:56px;border-radius:16px;background:var(--ink);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.adv-ico svg{width:28px;height:28px}
+.adv-card h3{font-size:18px;margin-bottom:6px}
+.adv-card p{margin:0;color:var(--muted)}
+
+/* ---------- Guide ---------- */
+.acc{display:grid;gap:12px;max-width:880px}
+.acc details{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.acc summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:800;font-size:17px;color:var(--ink);display:flex;align-items:center;gap:12px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"";margin-left:auto;width:12px;height:12px;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg);transition:transform .2s;flex:none}
+.acc details[open] summary::after{transform:rotate(225deg)}
+.acc .emoji{font-size:22px}
+.acc .acc-body{padding:0 20px 20px 56px;color:#3d434b}
+.acc .acc-body p{margin:0 0 10px}
+.acc .acc-body ul{margin:0;padding-left:20px}
+@media (max-width:575px){.acc .acc-body{padding-left:20px}}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--ink);color:#C9D1DB;padding:48px 0 24px}
+.footer h3{color:#fff;font-size:16px;margin-bottom:12px}
+.foot-grid{display:grid;gap:28px;grid-template-columns:1fr}
+@media (min-width:768px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.footer p{margin:0 0 6px}
+.footer a{color:#E7ECF2;text-decoration:none}
+.footer a:hover{color:var(--accent)}
+.socials{display:flex;gap:10px}
+.socials a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.socials a:hover{background:var(--accent);color:var(--ink)}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:32px;padding-top:20px;font-size:14px;color:#9AA6B4}
+
+/* ---------- Overlay / Drawer ---------- */
+.overlay{position:fixed;inset:0;background:rgba(17,24,33,.5);z-index:60;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.overlay.show{opacity:1;visibility:visible;transition:opacity .3s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#fff;z-index:80;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility 0s .3s;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+.drawer.open{transform:none;visibility:visible;transition:transform .3s}
+@media (max-width:575px){.drawer{width:100%}}
+.drawer-head{display:flex;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:22px;margin-right:auto}
+.drawer-head h2 small{font-size:15px;color:var(--muted);font-weight:700}
+.close-btn{width:42px;height:42px;border:0;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.close-btn:hover{background:var(--line)}
+.close-btn svg{width:20px;height:20px}
+.drawer-body{flex:1;overflow:auto;padding:12px 20px}
+.cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);animation:appear .3s both}
+.cart-item .thumb{width:64px;height:64px;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center}
+.cart-item .thumb svg{width:52px;height:52px}
+.ci-name{font-weight:800;color:var(--ink);line-height:1.3}
+.ci-size{font-size:14px;color:var(--muted);font-weight:600}
+.ci-calc{font-size:14px;color:var(--muted);margin-top:2px}
+.ci-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ci-sum{font-weight:800;color:var(--ink);font-size:17px;white-space:nowrap}
+.rm{width:36px;height:36px;border:0;border-radius:10px;background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center}
+.rm:hover{background:#FDE7E7;color:#C0392B}
+.rm svg{width:18px;height:18px}
+.drawer-foot{padding:16px 20px;border-top:1px solid var(--line)}
+.drawer-foot[hidden]{display:none}
+.drawer-foot .btn{width:100%}
+.cart-empty{text-align:center;padding:48px 8px}
+.cart-empty[hidden]{display:none}
+.cart-empty svg{width:120px;height:120px;margin:0 auto 16px;opacity:.9}
+.cart-empty p{font-size:18px;font-weight:700;color:var(--ink);margin:0 0 18px}
+
+dialog{border:0;border-radius:18px;padding:24px;max-width:360px;width:calc(100% - 32px);box-shadow:0 30px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(17,24,33,.55)}
+dialog h3{font-size:20px;margin-bottom:8px}
+dialog p{margin:0 0 20px;color:var(--muted)}
+dialog form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-danger{background:#D9412E;color:#fff}
+.btn-danger:hover{background:#C2361F}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;z-index:90;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.25);max-width:calc(100% - 32px)}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.toast::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="ШинаДрайв — на главную">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#2F3D4E"/><circle cx="20" cy="20" r="18" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-dasharray="4 3"/><circle cx="20" cy="20" r="9" fill="#E7ECF2"/><g stroke="#2F3D4E" stroke-width="2.4" stroke-linecap="round"><path d="M20 13v4M20 23v4M13 20h4M23 20h4"/></g><circle cx="20" cy="20" r="2.5" fill="#FF7A1A"/></svg>
+      <span>Шина<b>Драйв</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="#picker">Подбор</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#guide">Как выбрать</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="icon-btn" id="cartBtn" aria-label="Открыть корзину" aria-controls="cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      <span class="badge-count" id="cartCount" hidden>0</span>
+    </button>
+    <button class="icon-btn burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" id="picker" aria-labelledby="heroTitle">
+  <svg class="hero-tire" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#fff"/><circle cx="60" cy="60" r="54" fill="none" stroke="#1E2A38" stroke-width="7" stroke-dasharray="6 5"/><circle cx="60" cy="60" r="34" fill="#1E2A38"/><circle cx="60" cy="60" r="28" fill="#fff"/><g fill="#1E2A38"><rect x="57" y="34" width="6" height="18" rx="3"/><rect x="57" y="34" width="6" height="18" rx="3" transform="rotate(72 60 60)"/><rect x="57" y="34" width="6" height="18" rx="3" transform="rotate(144 60 60)"/><rect x="57" y="34" width="6" height="18" rx="3" transform="rotate(216 60 60)"/><rect x="57" y="34" width="6" height="18" rx="3" transform="rotate(288 60 60)"/></g></svg>
+  <div class="container hero-grid">
+    <div>
+      <h1 id="heroTitle">Подберём шины для вашего авто <span>за минуту</span></h1>
+      <p class="hero-lead">Выберите марку и модель автомобиля или укажите размер — мы покажем только те шины, которые вам подходят.</p>
+      <ul class="hero-points">
+        <li>Подбор по автомобилю или по размеру</li>
+        <li>Летние и зимние — шипованные и «липучка»</li>
+        <li>10 проверенных производителей</li>
+      </ul>
+
+      <div class="starter">
+        <svg class="starter-girl" viewBox="0 0 250 300" role="img" aria-label="Иллюстрация: девушка в гоночном комбинезоне даёт старт клетчатым флагом">
+          <defs>
+            <pattern id="checker" width="14" height="14" patternUnits="userSpaceOnUse">
+              <rect width="14" height="14" fill="#fff"/><rect width="7" height="7" fill="#1E2A38"/><rect x="7" y="7" width="7" height="7" fill="#1E2A38"/>
+            </pattern>
+          </defs>
+          <ellipse cx="122" cy="286" rx="46" ry="7" fill="#000" opacity=".25"/>
+          <!-- волосы сзади -->
+          <path d="M97 66 Q90 112 104 122 L136 122 Q150 112 143 66 Z" fill="#4A2E22"/>
+          <path d="M140 58 Q172 66 166 116 Q156 92 140 82 Z" fill="#4A2E22"/>
+          <!-- ноги -->
+          <path d="M101 170 H119 L116 268 H105 Z" fill="#FF7A1A"/>
+          <path d="M121 170 H139 L135 268 H124 Z" fill="#FF7A1A"/>
+          <path d="M104 172 L106 266 M136 172 L133 266" stroke="#fff" stroke-width="3"/>
+          <rect x="99" y="264" width="20" height="16" rx="6" fill="#fff"/>
+          <rect x="121" y="264" width="20" height="16" rx="6" fill="#fff"/>
+          <!-- шея и корпус -->
+          <rect x="113" y="88" width="14" height="18" rx="5" fill="#F1C7A3"/>
+          <path d="M92 108 Q120 98 148 108 L142 172 H98 Z" fill="#FF7A1A"/>
+          <path d="M120 104 V170" stroke="#fff" stroke-width="2.5" opacity=".8"/>
+          <rect x="98" y="160" width="44" height="8" rx="3" fill="#1E2A38"/>
+          <circle cx="134" cy="124" r="7" fill="#1E2A38"/><circle cx="134" cy="124" r="7" fill="none" stroke="#FFC93C" stroke-width="2" stroke-dasharray="2 2"/>
+          <!-- левая рука на поясе -->
+          <path d="M96 112 Q80 140 99 160" fill="none" stroke="#FF7A1A" stroke-width="13" stroke-linecap="round"/>
+          <circle cx="100" cy="161" r="6.5" fill="#F1C7A3"/>
+          <!-- голова -->
+          <circle cx="120" cy="70" r="23" fill="#F1C7A3"/>
+          <path d="M97 70 Q97 52 112 49 Q104 62 99 76 Z" fill="#4A2E22"/>
+          <ellipse cx="112" cy="71" rx="2.6" ry="3.2" fill="#1E2A38"/>
+          <ellipse cx="128" cy="71" rx="2.6" ry="3.2" fill="#1E2A38"/>
+          <path d="M108 64 Q112 62 115 64 M125 64 Q128 62 132 64" stroke="#4A2E22" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <circle cx="106" cy="79" r="4" fill="#F08A8A" opacity=".45"/><circle cx="134" cy="79" r="4" fill="#F08A8A" opacity=".45"/>
+          <path d="M113 81 Q120 88 127 81" stroke="#B5523B" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <!-- кепка -->
+          <path d="M96 62 Q97 40 120 40 Q143 40 144 62 Z" fill="#1E2A38"/>
+          <path d="M120 58 L156 60 Q154 67 128 65 Z" fill="#1E2A38"/>
+          <circle cx="120" cy="50" r="5" fill="#FF7A1A"/>
+          <!-- правая рука с флагом -->
+          <g class="flag-arm">
+            <path d="M144 112 Q168 94 174 54" fill="none" stroke="#FF7A1A" stroke-width="13" stroke-linecap="round"/>
+            <line x1="170" y1="80" x2="186" y2="6" stroke="#C9D0D8" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="175" cy="52" r="6.5" fill="#F1C7A3"/>
+            <path class="flag" d="M185 8 C200 0 216 16 238 6 L240 50 C220 60 204 44 188 52 Z" fill="url(#checker)" stroke="#1E2A38" stroke-width="1.5"/>
+          </g>
+          <path d="M210 70 h22 M216 80 h18 M206 90 h14" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        </svg>
+        <div class="bubble">Готовы к старту? 🏁<br><span>Подберите шины — и в путь!</span></div>
+      </div>
+    </div>
+
+    <form class="picker" id="pickForm" novalidate>
+      <h2>Подбор шин</h2>
+      <div class="tabs" role="tablist" aria-label="Способ подбора">
+        <button type="button" class="tab" role="tab" id="tab-car" aria-selected="true" aria-controls="panel-car">🚗 По автомобилю</button>
+        <button type="button" class="tab" role="tab" id="tab-size" aria-selected="false" aria-controls="panel-size" tabindex="-1">📏 По размеру</button>
+      </div>
+
+      <div role="tabpanel" id="panel-car" aria-labelledby="tab-car">
+        <div class="fields">
+          <div class="field"><label for="carBrand">Марка</label><select id="carBrand"></select></div>
+          <div class="field"><label for="carModel">Модель</label><select id="carModel" disabled><option value="">Модель</option></select></div>
+          <div class="field"><label for="carYear">Год выпуска</label><select id="carYear" disabled><option value="">Год</option></select></div>
+        </div>
+      </div>
+      <div role="tabpanel" id="panel-size" aria-labelledby="tab-size" hidden>
+        <div class="fields">
+          <div class="field"><label for="hWidth">Ширина, мм</label><select id="hWidth"></select></div>
+          <div class="field"><label for="hProfile">Профиль, %</label><select id="hProfile"></select></div>
+          <div class="field"><label for="hDia">Диаметр</label><select id="hDia"></select></div>
+        </div>
+      </div>
+
+      <div class="seg" role="group" aria-label="Сезон">
+        <button type="button" data-season="summer">☀️ Летние</button>
+        <button type="button" data-season="winter">❄️ Зимние</button>
+        <button type="button" data-season="all">Все</button>
+      </div>
+      <button type="submit" class="btn btn-primary">Подобрать шины</button>
+      <p class="pick-msg" id="pickMsg" role="alert"></p>
+
+      <details class="hint">
+        <summary>🤔 Где найти размер шины?</summary>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Размер написан крупными цифрами на боковине шины. Ещё его можно найти на наклейке в проёме водительской двери или на крышке бензобака.</p>
+        <div class="sidewall" aria-label="Пример маркировки: 205/55 R16 91V">
+          <div class="marking"><span class="m1">205</span>/<span class="m2">55</span> <span class="m3">R16</span> <span class="m4">91V</span></div>
+        </div>
+        <ul class="legend">
+          <li><i style="background:var(--accent)"></i>205 — ширина, мм</li>
+          <li><i style="background:var(--summer)"></i>55 — профиль, % от ширины</li>
+          <li><i style="background:var(--winter)"></i>R16 — диаметр диска, дюймы</li>
+          <li><i style="background:#9BE08B"></i>91V — индексы нагрузки и скорости</li>
+        </ul>
+      </details>
+    </form>
+  </div>
+</section>
+<div class="road" aria-hidden="true"></div>
+
+<!-- ================= CATALOG ================= -->
+<section id="catalog" aria-labelledby="catTitle">
+  <div class="container">
+    <h2 class="section-title" id="catTitle">Каталог шин</h2>
+    <p class="section-sub">Фильтры применяются сразу — просто выбирайте, что вам важно.</p>
+
+    <div class="car-banner" id="carBanner" hidden>
+      <span>🚗 Показаны шины для <b id="carLabel"></b>: <span id="carSizes"></span></span>
+      <button class="btn btn-ghost" id="carReset" type="button">Сбросить</button>
+    </div>
+
+    <div class="catalog-layout">
+      <!-- Filters -->
+      <aside class="filters" id="filters" aria-label="Фильтры">
+        <div class="sheet-head">
+          <h3>Фильтры</h3>
+          <button class="close-btn" type="button" data-close aria-label="Закрыть фильтры"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="filters-body">
+          <div class="filters-head"><h3>Фильтры</h3></div>
+
+          <div class="fgroup">
+            <p class="ftitle">Сезон</p>
+            <div class="seg" role="group" aria-label="Сезон">
+              <button type="button" data-season="summer">☀️ Летние</button>
+              <button type="button" data-season="winter">❄️ Зимние</button>
+              <button type="button" data-season="all">Все</button>
+            </div>
+          </div>
+
+          <div class="fgroup" id="studsGroup">
+            <p class="ftitle">Шипы <span style="font-weight:600;color:var(--muted);font-size:13px">(для зимних)</span></p>
+            <div class="seg" role="group" aria-label="Шипы">
+              <button type="button" data-studs="studded">Шипы</button>
+              <button type="button" data-studs="nonstudded">Без шипов</button>
+              <button type="button" data-studs="all">Все</button>
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <p class="ftitle">Производитель</p>
+            <div class="checks" id="brandList"></div>
+          </div>
+
+          <div class="fgroup">
+            <div class="two">
+              <div class="field"><label for="fWidth">Ширина</label><select id="fWidth"></select></div>
+              <div class="field"><label for="fProfile">Профиль</label><select id="fProfile"></select></div>
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <p class="ftitle">Диаметр</p>
+            <div class="chips" id="diaChips" role="group" aria-label="Диаметр"></div>
+          </div>
+
+          <div class="fgroup">
+            <p class="ftitle">Цена за 1 шт., ₸</p>
+            <div class="range">
+              <div class="track"></div><div class="fill" id="rangeFill"></div>
+              <input type="range" id="rMin" aria-label="Минимальная цена">
+              <input type="range" id="rMax" aria-label="Максимальная цена">
+            </div>
+            <div class="two price-inputs">
+              <div><label for="pMin">от</label><input class="input" type="number" id="pMin" inputmode="numeric"></div>
+              <div><label for="pMax">до</label><input class="input" type="number" id="pMax" inputmode="numeric"></div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-ghost reset-all" data-reset>Сбросить все фильтры</button>
+        </div>
+        <div class="sheet-foot">
+          <button type="button" class="btn btn-ghost" data-reset>Сбросить</button>
+          <button type="button" class="btn btn-primary" id="showN" data-close>Показать</button>
+        </div>
+      </aside>
+
+      <!-- Results -->
+      <div>
+        <div class="toolbar">
+          <p class="found" id="found" aria-live="polite">Найдено: 0 шин</p>
+          <button type="button" class="btn btn-ghost filters-btn" id="filtersBtn" aria-controls="filters">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            Фильтры <span class="badge-count" id="fCount" hidden>0</span>
+          </button>
+          <div class="sort">
+            <label for="sort">Сортировка</label>
+            <select id="sort">
+              <option value="popular">По популярности</option>
+              <option value="cheap">Сначала дешёвые</option>
+              <option value="expensive">Сначала дорогие</option>
+            </select>
+          </div>
+        </div>
+        <div class="tags" id="tags" aria-label="Активные фильтры"></div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden>
+          <div style="font-size:48px" aria-hidden="true">🛞</div>
+          <p>Таких шин пока нет 😔 Попробуйте изменить фильтры</p>
+          <button type="button" class="btn btn-primary" data-reset>Сбросить фильтры</button>
+        </div>
+        <div class="more"><button type="button" class="btn btn-ghost" id="moreBtn" hidden>Показать ещё</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="road" aria-hidden="true"></div>
+
+<!-- ================= ADVANTAGES ================= -->
+<section class="adv" aria-labelledby="advTitle">
+  <div class="container">
+    <h2 class="section-title" id="advTitle">Почему выбирают нас</h2>
+    <p class="section-sub">Делаем покупку шин простой и спокойной.</p>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Только оригинальные шины</h3><p>Работаем напрямую с официальными дистрибьюторами производителей.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg></div>
+        <h3>Большой выбор размеров</h3><p>От R13 до R21 — для малолитражек, седанов и кроссоверов.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <h3>Удобный подбор по авто</h3><p>Не помните размер? Выберите марку и модель — остальное сделаем мы.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor"/></svg></div>
+        <h3>Честные цены</h3><p>Цена за штуку и за комплект видна сразу — без скрытых наценок.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUIDE ================= -->
+<section id="guide" aria-labelledby="guideTitle">
+  <div class="container">
+    <h2 class="section-title" id="guideTitle">Как выбрать шины</h2>
+    <p class="section-sub">Короткая памятка — без сложных терминов.</p>
+    <div class="acc">
+      <details open>
+        <summary><span class="emoji" aria-hidden="true">🔎</span>Как читать маркировку шины</summary>
+        <div class="acc-body">
+          <p>Возьмём пример <b>205/55 R16 91V</b>:</p>
+          <ul>
+            <li><b>205</b> — ширина шины в миллиметрах;</li>
+            <li><b>55</b> — высота профиля в процентах от ширины (чем меньше, тем «ниже» шина);</li>
+            <li><b>R16</b> — посадочный диаметр диска в дюймах;</li>
+            <li><b>91</b> — индекс нагрузки (до 615 кг на одно колесо), <b>V</b> — индекс скорости (до 240 км/ч).</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="emoji" aria-hidden="true">🌡️</span>Когда менять летние шины на зимние</summary>
+        <div class="acc-body">
+          <p>Ориентируйтесь на <b>правило +7 °C</b>: когда среднесуточная температура держится ниже +7 °C, летняя резина «дубеет» и хуже держит дорогу — пора ставить зимнюю. Весной — наоборот: когда стабильно теплее +7 °C, переобувайтесь в летнюю.</p>
+          <p>Не тяните до первого снега — в шиномонтаж в этот день выстраиваются очереди 🙂</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="emoji" aria-hidden="true">❄️</span>Шипованные или нешипованные («липучка»)?</summary>
+        <div class="acc-body">
+          <ul>
+            <li><b>Шипованные</b> — лучший выбор для льда и укатанного снега, загородных трасс и регионов с суровой зимой. Немного шумнее на чистом асфальте.</li>
+            <li><b>Нешипованные («липучка»)</b> — тихие и комфортные, отлично подходят для города, где дороги чистят и посыпают реагентами.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="emoji" aria-hidden="true">📏</span>Как понять, что шины пора менять</summary>
+        <div class="acc-body">
+          <p>Минимальная остаточная глубина протектора: <b>1,6 мм</b> для летних шин и <b>4 мм</b> для зимних. Также стоит заменить шины при трещинах, грыжах и если им больше 6–8 лет.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="contacts">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" style="margin-bottom:12px;display:inline-flex">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#2F3D4E"/><circle cx="20" cy="20" r="18" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-dasharray="4 3"/><circle cx="20" cy="20" r="9" fill="#E7ECF2"/><circle cx="20" cy="20" r="2.5" fill="#FF7A1A"/></svg>
+          <span>Шина<b>Драйв</b></span>
+        </a>
+        <p>Летние и зимние шины для легковых автомобилей. Поможем подобрать — без спешки и навязывания.</p>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <p><a href="tel:+77182000000">+7 (7182) 00-00-00</a></p>
+        <p><a href="mailto:hello@shinadrive.example">hello@shinadrive.example</a></p>
+        <p>Казахстан, г. Павлодар, ул. Химкомбинатовская, 1</p>
+      </div>
+      <div>
+        <h3>Режим работы</h3>
+        <p>Пн–Пт: 9:00–20:00</p>
+        <p>Сб–Вс: 10:00–18:00</p>
+      </div>
+      <div>
+        <h3>Мы в соцсетях</h3>
+        <div class="socials">
+          <a href="#" aria-label="ВКонтакте">VK</a>
+          <a href="#" aria-label="Telegram">TG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© <span id="year"></span> ШинаДрайв. Демо-версия сайта: данные и цены носят ознакомительный характер.</div>
+  </div>
+</footer>
+
+<!-- ================= CART ================= -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="cartTitle">Корзина <small id="cartSub"></small></h2>
+    <button class="close-btn" type="button" data-close aria-label="Закрыть корзину"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="drawer-body">
+    <div id="cartList"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#EEF1F5"/><circle cx="60" cy="60" r="38" fill="#1E2A38"/><circle cx="60" cy="60" r="36" fill="none" stroke="#3A4A5E" stroke-width="5" stroke-dasharray="5 4"/><circle cx="60" cy="60" r="20" fill="#E7ECF2"/><circle cx="60" cy="60" r="6" fill="#FF7A1A"/><path d="M44 96q16 10 32 0" stroke="#FF7A1A" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+      <p>Корзина пока пуста — давайте подберём шины!</p>
+      <button type="button" class="btn btn-primary" id="goPick">Перейти к подбору</button>
+    </div>
+  </div>
+  <div class="drawer-foot" id="cartFoot">
+    <button type="button" class="btn btn-ghost" id="clearCart">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+      Очистить корзину
+    </button>
+  </div>
+</aside>
+
+<dialog id="confirm" aria-labelledby="confirmTitle">
+  <h3 id="confirmTitle">Очистить корзину?</h3>
+  <p>Все выбранные шины будут удалены из корзины.</p>
+  <form method="dialog">
+    <button class="btn btn-ghost" value="no">Отмена</button>
+    <button class="btn btn-danger" value="yes">Очистить</button>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* =========================================================
+   ДАННЫЕ (в PRD — data/tires.json и data/cars.json;
+   встроены сюда, чтобы сайт работал из одного файла)
+   ========================================================= */
+var SIZE_INFO = {
+  '175/70 R13':[82,'T'], '185/65 R14':[86,'H'], '185/60 R15':[88,'H'], '185/65 R15':[92,'H'],
+  '195/65 R15':[91,'V'], '195/55 R16':[91,'V'], '205/55 R16':[94,'V'], '215/60 R16':[99,'V'],
+  '205/50 R17':[93,'W'], '215/55 R17':[98,'W'], '225/45 R17':[94,'W'], '225/50 R17':[98,'W'],
+  '225/60 R17':[99,'H'], '235/65 R17':[108,'V'], '225/45 R18':[95,'W'], '235/45 R18':[94,'W'],
+  '235/55 R18':[104,'V'], '245/40 R19':[98,'Y'], '255/45 R20':[105,'W']
+};
+var SIZES = Object.keys(SIZE_INFO);
+
+// [производитель, модель, сезон, шипы, базовая цена (R17), популярность]
+var MODELS = [
+  ['Michelin','Pilot Sport 5','summer',false,14500,95],
+  ['Michelin','Primacy 4+','summer',false,12200,88],
+  ['Continental','PremiumContact 7','summer',false,12800,90],
+  ['Continental','EcoContact 6','summer',false,10400,78],
+  ['Bridgestone','Turanza 6','summer',false,10900,74],
+  ['Pirelli','P Zero','summer',false,15800,80],
+  ['Pirelli','Cinturato P7','summer',false,11200,72],
+  ['Ikon Tyres','Autograph Eco 3','summer',false,8300,76],
+  ['Hankook','Ventus Prime 4','summer',false,8900,84],
+  ['Yokohama','BluEarth-ES ES32','summer',false,7400,70],
+  ['Goodyear','EfficientGrip Performance 2','summer',false,10100,68],
+  ['Kumho','Ecsta HS52','summer',false,7200,66],
+  ['Cordiant','Sport 3','summer',false,5200,82],
+  ['Michelin','X-Ice North 4','winter',true,15200,92],
+  ['Continental','IceContact 3','winter',true,13600,86],
+  ['Bridgestone','Ice Cruiser 7000S','winter',true,9800,64],
+  ['Pirelli','Ice Zero 2','winter',true,12400,71],
+  ['Ikon Tyres','Nordman 8','winter',true,7900,89],
+  ['Hankook','Winter i*Pike RS2','winter',true,9100,85],
+  ['Yokohama','iceGUARD Stud IG65','winter',true,9600,79],
+  ['Goodyear','UltraGrip Arctic 2','winter',true,11000,62],
+  ['Kumho','WinterCraft Ice WI32','winter',true,7600,60],
+  ['Cordiant','Snow Cross 2','winter',true,6100,87],
+  ['Michelin','X-Ice Snow','winter',false,14100,83],
+  ['Continental','VikingContact 7','winter',false,13200,81],
+  ['Bridgestone','Blizzak Ice','winter',false,10700,69],
+  ['Ikon Tyres','Autograph Snow 3','winter',false,10300,77],
+  ['Hankook','Winter i*cept iZ2','winter',false,8400,67],
+  ['Yokohama','iceGUARD IG60','winter',false,9000,65],
+  ['Cordiant','Winter Drive 2','winter',false,5600,75]
+];
+var BRANDS = ['Michelin','Continental','Bridgestone','Pirelli','Ikon Tyres','Hankook','Yokohama','Goodyear','Kumho','Cordiant'];
+var KZT_K = 6; // базовые цены в списке выше заданы в условных единицах, пересчёт в тенге
+var DIA_K = {13:.55,14:.62,15:.7,16:.82,17:1,18:1.22,19:1.45,20:1.7,21:1.9};
+
+function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+
+var TIRES = [];
+var seq = {summer:0, winter:0};
+MODELS.forEach(function(m){
+  for (var k=0;k<4;k++){
+    var size = SIZES[(seq[m[2]]*5) % SIZES.length]; seq[m[2]]++;
+    var parts = size.match(/(\d+)\/(\d+) R(\d+)/);
+    var w=+parts[1], p=+parts[2], d=+parts[3], info=SIZE_INFO[size];
+    TIRES.push({
+      id: slug(m[0]+'-'+m[1]+'-'+w+'-'+p+'-'+d),
+      brand:m[0], model:m[1], season:m[2], studded:m[3],
+      width:w, profile:p, diameter:d, size:size,
+      loadIndex:info[0], speedIndex: m[2]==='winter' ? (m[3]?'T':'H') : info[1],
+      price: Math.round(m[4]*KZT_K*DIA_K[d]*(1+(w-200)/900)/100)*100,
+      popularity: m[5]-k*3,
+      inStock: TIRES.length % 11 !== 7
+    });
+  }
+});
+var BY_ID = {}; TIRES.forEach(function(t){ BY_ID[t.id]=t; });
+
+var CARS = [
+  {brand:'Kia',model:'Rio',years:[2011,2016],sizes:['185/65 R15','195/55 R16']},
+  {brand:'Kia',model:'Rio',years:[2017,2023],sizes:['185/65 R15','195/55 R16']},
+  {brand:'Kia',model:'Sportage',years:[2016,2021],sizes:['225/60 R17','235/55 R18']},
+  {brand:'Kia',model:'Ceed',years:[2018,2024],sizes:['195/65 R15','205/55 R16','225/45 R17']},
+  {brand:'Hyundai',model:'Solaris',years:[2017,2022],sizes:['185/65 R15','195/55 R16']},
+  {brand:'Hyundai',model:'Creta',years:[2016,2021],sizes:['215/60 R16','225/60 R17']},
+  {brand:'Hyundai',model:'Tucson',years:[2015,2020],sizes:['225/60 R17','245/40 R19']},
+  {brand:'Toyota',model:'Camry',years:[2018,2024],sizes:['215/55 R17','235/45 R18']},
+  {brand:'Toyota',model:'Corolla',years:[2019,2023],sizes:['195/65 R15','205/55 R16','225/45 R17']},
+  {brand:'Toyota',model:'RAV4',years:[2019,2024],sizes:['235/65 R17','235/55 R18']},
+  {brand:'Lada',model:'Vesta',years:[2015,2024],sizes:['185/65 R15','195/55 R16','205/50 R17']},
+  {brand:'Lada',model:'Granta',years:[2018,2024],sizes:['175/70 R13','185/65 R14']},
+  {brand:'Volkswagen',model:'Polo',years:[2020,2023],sizes:['185/65 R15','195/55 R16']},
+  {brand:'Volkswagen',model:'Tiguan',years:[2017,2023],sizes:['235/55 R18','255/45 R20']},
+  {brand:'Skoda',model:'Octavia',years:[2013,2019],sizes:['205/55 R16','225/45 R17']},
+  {brand:'Skoda',model:'Octavia',years:[2020,2024],sizes:['205/55 R16','225/45 R17','225/45 R18']},
+  {brand:'Skoda',model:'Rapid',years:[2014,2022],sizes:['185/60 R15','195/55 R16']},
+  {brand:'Renault',model:'Logan',years:[2014,2022],sizes:['185/65 R14','185/65 R15']},
+  {brand:'Renault',model:'Duster',years:[2015,2024],sizes:['215/60 R16','215/55 R17']},
+  {brand:'Nissan',model:'Qashqai',years:[2014,2021],sizes:['215/60 R16','215/55 R17']},
+  {brand:'Mazda',model:'CX-5',years:[2017,2024],sizes:['225/60 R17','225/45 R18']},
+  {brand:'BMW',model:'3 Series',years:[2019,2024],sizes:['225/50 R17','225/45 R18','245/40 R19']},
+  {brand:'Mercedes-Benz',model:'C-Class',years:[2014,2021],sizes:['205/55 R16','225/50 R17','225/45 R18']},
+  {brand:'Haval',model:'Jolion',years:[2021,2024],sizes:['215/55 R17','225/60 R17']},
+  {brand:'Geely',model:'Coolray',years:[2020,2024],sizes:['215/55 R17','225/45 R18']}
+];
+
+/* ========================== Утилиты ========================== */
+function $(s,r){ return (r||document).querySelector(s); }
+function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
+var NF = new Intl.NumberFormat('ru-RU');
+function money(n){ return NF.format(n)+' ₸'; }
+function plural(n,f){ var a=n%10,b=n%100; return f[(a===1&&b!==11)?0:(a>=2&&a<=4&&(b<10||b>=20))?1:2]; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function range(a,b,s){ var r=[]; for(var i=a;i<=b;i+=s) r.push(i); return r; }
+var WIDTHS = range(155,275,10), PROFILES = range(35,80,5), DIAS = range(13,21,1);
+
+/* Иллюстрация шины (SVG) */
+function tireSVG(t, label){
+  var bi = BRANDS.indexOf(t.brand), spokes = 5 + (bi % 3), g = '';
+  for (var i=0;i<spokes;i++) g += '<rect x="56.5" y="35" width="7" height="17" rx="3.5" transform="rotate('+(i*360/spokes)+' 60 60)"/>';
+  var accent = t.season==='winter' ? '#4DA8F0' : '#FFC93C';
+  return '<svg viewBox="0 0 120 120"'+(label?' role="img" aria-label="'+esc(label)+'"':' aria-hidden="true"')+'>'+
+    '<circle cx="60" cy="60" r="57" fill="#20262D"/>'+
+    '<circle cx="60" cy="60" r="53" fill="none" stroke="#39424D" stroke-width="7" stroke-dasharray="6 4"/>'+
+    (t.studded ? '<circle cx="60" cy="60" r="53" fill="none" stroke="#D5DCE3" stroke-width="2" stroke-dasharray="1.5 8.5" stroke-linecap="round"/>' : '')+
+    '<circle cx="60" cy="60" r="45" fill="#2A3139"/>'+
+    '<circle cx="60" cy="60" r="41" fill="none" stroke="'+accent+'" stroke-width="1.6" opacity=".9"/>'+
+    '<circle cx="60" cy="60" r="32" fill="#C9D0D8"/><circle cx="60" cy="60" r="28" fill="#9AA4AF"/>'+
+    '<g fill="#E4E9EE">'+g+'</g>'+
+    '<circle cx="60" cy="60" r="9" fill="#7D8792"/><circle cx="60" cy="60" r="3.5" fill="#4F5862"/>'+
+    '</svg>';
+}
+var WHEEL_ICON = '<svg class="wheel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v7M12 15v7M2 12h7M15 12h7"/></svg>';
+var TRASH_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>';
+
+/* ========================== Состояние ========================== */
+var prices = TIRES.map(function(t){return t.price;});
+var P_STEP = 2500;
+var P_MIN = Math.floor(Math.min.apply(null,prices)/P_STEP)*P_STEP;
+var P_MAX = Math.ceil(Math.max.apply(null,prices)/P_STEP)*P_STEP;
+var PAGE = 12;
+
+function defaults(){
+  return {season:'all', studs:'all', brands:{}, width:'', profile:'', diameters:{},
+          pmin:P_MIN, pmax:P_MAX, sort:'popular', car:null, shown:PAGE};
+}
+var state = defaults();
+var cardQty = {};
+
+function hasKeys(o){ return Object.keys(o).length>0; }
+
+function matches(t, skipBrand){
+  var s = state;
+  if (s.season!=='all' && t.season!==s.season) return false;
+  if (s.studs!=='all'){
+    if (t.season!=='winter') return false;
+    if ((s.studs==='studded') !== t.studded) return false;
+  }
+  if (!skipBrand && hasKeys(s.brands) && !s.brands[t.brand]) return false;
+  if (s.width && t.width !== +s.width) return false;
+  if (s.profile && t.profile !== +s.profile) return false;
+  if (hasKeys(s.diameters) && !s.diameters[t.diameter]) return false;
+  if (t.price < s.pmin || t.price > s.pmax) return false;
+  if (s.car && s.car.sizes.indexOf(t.size) === -1) return false;
+  return true;
+}
+function getList(){
+  var list = TIRES.filter(function(t){ return matches(t,false); });
+  if (state.sort==='cheap') list.sort(function(a,b){return a.price-b.price;});
+  else if (state.sort==='expensive') list.sort(function(a,b){return b.price-a.price;});
+  else list.sort(function(a,b){return b.popularity-a.popularity || a.price-b.price;});
+  return list;
+}
+
+/* ========================== Корзина ========================== */
+function loadCart(){
+  try {
+    var raw = JSON.parse(localStorage.getItem('cart') || '[]');
+    return Array.isArray(raw) ? raw.filter(function(i){ return i && BY_ID[i.id] && i.qty>0; }) : [];
+  } catch(e){ return []; }
+}
+function saveCart(){ try { localStorage.setItem('cart', JSON.stringify(cart)); } catch(e){} }
+var cart = loadCart();
+function inCart(id){ for (var i=0;i<cart.length;i++) if (cart[i].id===id) return cart[i]; return null; }
+function cartTotalQty(){ return cart.reduce(function(s,i){return s+i.qty;},0); }
+
+function addToCart(id, qty){
+  var item = inCart(id);
+  if (item) item.qty = Math.min(99, item.qty + qty);
+  else cart.push({id:id, qty:qty});
+  saveCart(); renderCartBadge(true); renderCart(); syncCardButtons();
+  var t = BY_ID[id];
+  toast(t.brand+' '+t.model+' — '+qty+' шт. в корзине');
+}
+function removeFromCart(id){
+  cart = cart.filter(function(i){return i.id!==id;});
+  saveCart(); renderCartBadge(); renderCart(); syncCardButtons();
+}
+function clearCart(){
+  cart = []; saveCart(); renderCartBadge(); renderCart(); syncCardButtons();
+  toast('Корзина очищена');
+}
+
+function renderCartBadge(bump){
+  var n = cartTotalQty(), b = $('#cartCount');
+  b.textContent = n; b.hidden = n===0;
+  $('#cartBtn').setAttribute('aria-label', n ? 'Открыть корзину: '+n+' '+plural(n,['шина','шины','шин']) : 'Открыть корзину');
+  if (bump){ b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
+}
+function renderCart(){
+  var list = $('#cartList');
+  var empty = cart.length===0;
+  $('#cartEmpty').hidden = !empty;
+  $('#cartFoot').hidden = empty;
+  var n = cartTotalQty();
+  $('#cartSub').textContent = empty ? '' : '· '+n+' '+plural(n,['шина','шины','шин']);
+  list.innerHTML = cart.map(function(i){
+    var t = BY_ID[i.id];
+    return '<div class="cart-item">'+
+      '<div class="thumb">'+tireSVG(t)+'</div>'+
+      '<div><div class="ci-name">'+esc(t.brand+' '+t.model)+'</div>'+
+        '<div class="ci-size">'+t.size+' · '+t.loadIndex+' '+t.speedIndex+' · '+(t.season==='winter'?(t.studded?'❄️ шипы':'❄️ без шипов'):'☀️ летняя')+'</div>'+
+        '<div class="ci-calc">'+i.qty+' шт. × '+money(t.price)+'</div></div>'+
+      '<div class="ci-right"><div class="ci-sum">'+money(t.price*i.qty)+'</div>'+
+        '<button class="rm" type="button" data-rm="'+t.id+'" aria-label="Удалить '+esc(t.brand+' '+t.model+' '+t.size)+' из корзины">'+TRASH_ICON+'</button></div>'+
+    '</div>';
+  }).join('');
+}
+
+/* ========================== Каталог: рендер ========================== */
+var grid = $('#grid');
+
+function cardHTML(t){
+  var q = cardQty[t.id] || 4;
+  var seasonBadge = t.season==='summer' ? '<span class="badge summer">☀️ Летняя</span>'
+    : '<span class="badge winter">❄️ Зимняя</span><span class="badge">'+(t.studded?'Шипы':'Без шипов')+'</span>';
+  var name = t.brand+' '+t.model;
+  return '<article class="card" data-id="'+t.id+'" itemscope itemtype="https://schema.org/Product">'+
+    '<div class="card-img '+t.season+'">'+tireSVG(t,'Шина '+name+' '+t.size)+
+      '<div class="badges">'+seasonBadge+'</div>'+
+      (t.inStock?'':'<span class="badge oos">Нет в наличии</span>')+
+    '</div>'+
+    '<div class="card-body">'+
+      '<div class="badges mob-badges">'+seasonBadge+'</div>'+
+      '<div class="card-brand" itemprop="brand" itemscope itemtype="https://schema.org/Brand"><span itemprop="name">'+esc(t.brand)+'</span></div>'+
+      '<h3 itemprop="name">'+esc(name)+'</h3>'+
+      '<meta itemprop="sku" content="'+t.id+'">'+
+      '<div class="card-size">'+t.size+'<span title="Индексы нагрузки и скорости">'+t.loadIndex+' '+t.speedIndex+'</span></div>'+
+      '<div itemprop="offers" itemscope itemtype="https://schema.org/Offer" style="margin-top:auto">'+
+        '<meta itemprop="priceCurrency" content="KZT"><meta itemprop="price" content="'+t.price+'">'+
+        '<link itemprop="availability" href="https://schema.org/'+(t.inStock?'InStock':'OutOfStock')+'">'+
+        '<div class="price">'+money(t.price)+' <small>/ шт.</small></div>'+
+        '<div class="set-price">'+money(t.price*4)+' за комплект из 4 шт.</div>'+
+      '</div>'+
+      '<div class="buy">'+
+        '<div class="qty" role="group" aria-label="Количество">'+
+          '<button type="button" data-act="dec" aria-label="Уменьшить количество"'+(q<=1?' disabled':'')+'>−</button>'+
+          '<output aria-live="polite">'+q+'</output>'+
+          '<button type="button" data-act="inc" aria-label="Увеличить количество"'+(q>=8?' disabled':'')+'>+</button>'+
+        '</div>'+
+        addBtnHTML(t)+
+      '</div>'+
+    '</div>'+
+  '</article>';
+}
+function addBtnHTML(t){
+  if (!t.inStock) return '<button type="button" class="btn btn-primary add" disabled>Нет в наличии</button>';
+  var c = inCart(t.id);
+  return '<button type="button" class="btn btn-primary add'+(c?' in':'')+'" data-act="add"'+
+    (c?' title="В корзине '+c.qty+' шт. Нажмите, чтобы добавить ещё"':'')+'>'+WHEEL_ICON+'<span>'+(c?'✓ В корзине':'В корзину')+'</span></button>';
+}
+function syncCardButtons(){
+  $$('.card', grid).forEach(function(card){
+    var t = BY_ID[card.dataset.id], btn = $('.add', card);
+    if (!t.inStock) return;
+    var c = inCart(t.id);
+    btn.classList.toggle('in', !!c);
+    btn.title = c ? 'В корзине '+c.qty+' шт. Нажмите, чтобы добавить ещё' : '';
+    $('span', btn).textContent = c ? '✓ В корзине' : 'В корзину';
+  });
+}
+
+function renderGrid(){
+  var list = getList(), n = list.length;
+  $('#found').textContent = 'Найдено: '+n+' '+plural(n,['шина','шины','шин']);
+  $('#showN').textContent = 'Показать '+n+' '+plural(n,['товар','товара','товаров']);
+  grid.innerHTML = list.slice(0, state.shown).map(cardHTML).join('');
+  $('#empty').hidden = n>0;
+  var more = $('#moreBtn'), rest = n - state.shown;
+  more.hidden = rest<=0;
+  if (rest>0) more.textContent = 'Показать ещё ('+Math.min(PAGE,rest)+' из '+rest+')';
+}
+function appendMore(){
+  var list = getList(), from = state.shown;
+  state.shown += PAGE;
+  grid.insertAdjacentHTML('beforeend', list.slice(from, state.shown).map(cardHTML).join(''));
+  var more = $('#moreBtn'), rest = list.length - state.shown;
+  more.hidden = rest<=0;
+  if (rest>0) more.textContent = 'Показать ещё ('+Math.min(PAGE,rest)+' из '+rest+')';
+}
+
+function renderSeason(){
+  $$('[data-season]').forEach(function(b){
+    var on = b.dataset.season===state.season;
+    b.classList.toggle('on',on); b.setAttribute('aria-pressed', on);
+  });
+  $('#studsGroup').hidden = state.season==='summer';
+  $$('[data-studs]').forEach(function(b){
+    var on = b.dataset.studs===state.studs;
+    b.classList.toggle('on',on); b.setAttribute('aria-pressed', on);
+  });
+}
+function renderFilters(){
+  $$('#brandList .check').forEach(function(l){
+    var b = l.dataset.brand;
+    var cnt = TIRES.filter(function(t){ return t.brand===b && matches(t,true); }).length;
+    $('input',l).checked = !!state.brands[b];
+    $('em',l).textContent = cnt;
+    l.classList.toggle('zero', cnt===0 && !state.brands[b]);
+  });
+  $('#fWidth').value = state.width;
+  $('#fProfile').value = state.profile;
+  $$('#diaChips .chip').forEach(function(c){ c.setAttribute('aria-pressed', !!state.diameters[c.dataset.dia]); });
+  $('#rMin').value = state.pmin; $('#rMax').value = state.pmax;
+  $('#pMin').value = state.pmin; $('#pMax').value = state.pmax;
+  var a = (state.pmin-P_MIN)/(P_MAX-P_MIN)*100, b = (state.pmax-P_MIN)/(P_MAX-P_MIN)*100;
+  $('#rangeFill').style.left = a+'%'; $('#rangeFill').style.width = (b-a)+'%';
+}
+
+var currentTags = [];
+function renderTags(){
+  var s = state, tags = [];
+  if (s.season!=='all') tags.push({l: s.season==='summer'?'☀️ Летние':'❄️ Зимние', c:function(){ state.season='all'; }});
+  if (s.studs!=='all') tags.push({l: s.studs==='studded'?'Шипованные':'Без шипов', c:function(){ state.studs='all'; }});
+  Object.keys(s.brands).forEach(function(b){ tags.push({l:b, c:function(){ delete state.brands[b]; }}); });
+  if (s.width) tags.push({l:'Ширина '+s.width, c:function(){ state.width=''; }});
+  if (s.profile) tags.push({l:'Профиль '+s.profile, c:function(){ state.profile=''; }});
+  Object.keys(s.diameters).sort().forEach(function(d){ tags.push({l:'R'+d, c:function(){ delete state.diameters[d]; }}); });
+  if (s.pmin!==P_MIN || s.pmax!==P_MAX) tags.push({l:'Цена: '+NF.format(s.pmin)+' – '+NF.format(s.pmax)+' ₸', c:function(){ state.pmin=P_MIN; state.pmax=P_MAX; }});
+  currentTags = tags;
+  var html = tags.map(function(t,i){ return '<button type="button" class="tag" data-tag="'+i+'" aria-label="Убрать фильтр: '+esc(t.l)+'">'+esc(t.l)+'<span aria-hidden="true">✕</span></button>'; }).join('');
+  if (tags.length) html += '<button type="button" class="link-btn" data-reset style="margin-left:4px">Сбросить все</button>';
+  $('#tags').innerHTML = html;
+  var fc = $('#fCount'); fc.textContent = tags.length; fc.hidden = !tags.length;
+}
+function renderBanner(){
+  var c = state.car;
+  $('#carBanner').hidden = !c;
+  if (c){ $('#carLabel').textContent = c.label; $('#carSizes').textContent = c.sizes.join(', '); }
+}
+
+function update(keepShown){
+  if (!keepShown) state.shown = PAGE;
+  renderSeason(); renderFilters(); renderTags(); renderBanner(); renderGrid();
+}
+
+/* ========================== Инициализация фильтров ========================== */
+$('#brandList').innerHTML = BRANDS.map(function(b){
+  return '<label class="check" data-brand="'+b+'"><input type="checkbox" value="'+b+'"><span>'+b+'</span><em>0</em></label>';
+}).join('');
+$('#brandList').addEventListener('change', function(e){
+  var b = e.target.value;
+  if (e.target.checked) state.brands[b]=true; else delete state.brands[b];
+  update();
+});
+
+function fillSelect(sel, values, anyLabel, fmt){
+  sel.innerHTML = '<option value="">'+anyLabel+'</option>' + values.map(function(v){ return '<option value="'+v+'">'+(fmt?fmt(v):v)+'</option>'; }).join('');
+}
+fillSelect($('#fWidth'), WIDTHS, 'Любая');
+fillSelect($('#fProfile'), PROFILES, 'Любой');
+fillSelect($('#hWidth'), WIDTHS, 'Любая');
+fillSelect($('#hProfile'), PROFILES, 'Любой');
+fillSelect($('#hDia'), DIAS, 'Любой', function(v){return 'R'+v;});
+$('#fWidth').addEventListener('change', function(){ state.width=this.value; update(); });
+$('#fProfile').addEventListener('change', function(){ state.profile=this.value; update(); });
+
+$('#diaChips').innerHTML = DIAS.map(function(d){ return '<button type="button" class="chip" data-dia="'+d+'" aria-pressed="false">R'+d+'</button>'; }).join('');
+$('#diaChips').addEventListener('click', function(e){
+  var c = e.target.closest('.chip'); if (!c) return;
+  var d = c.dataset.dia;
+  if (state.diameters[d]) delete state.diameters[d]; else state.diameters[d]=true;
+  update();
+});
+
+// Цена
+['#rMin','#rMax'].forEach(function(id){ var r=$(id); r.min=P_MIN; r.max=P_MAX; r.step=P_STEP; });
+var priceTimer;
+function onRange(e){
+  var a = +$('#rMin').value, b = +$('#rMax').value;
+  if (a > b - P_STEP){ if (e.target.id==='rMin') a = b - P_STEP; else b = a + P_STEP; }
+  state.pmin = a; state.pmax = b;
+  renderFilters();
+  clearTimeout(priceTimer);
+  priceTimer = setTimeout(function(){ update(); }, 120);
+}
+$('#rMin').addEventListener('input', onRange);
+$('#rMax').addEventListener('input', onRange);
+function onPriceInput(){
+  var a = parseInt($('#pMin').value,10), b = parseInt($('#pMax').value,10);
+  if (isNaN(a)) a = P_MIN; if (isNaN(b)) b = P_MAX;
+  a = Math.max(P_MIN, Math.min(a, P_MAX)); b = Math.max(P_MIN, Math.min(b, P_MAX));
+  if (a > b){ var x=a; a=b; b=x; }
+  state.pmin = a; state.pmax = b; update();
+}
+$('#pMin').addEventListener('change', onPriceInput);
+$('#pMax').addEventListener('change', onPriceInput);
+
+$('#sort').addEventListener('change', function(){ state.sort=this.value; update(); });
+
+// Сезон и шипы (Hero и каталог синхронизированы)
+document.addEventListener('click', function(e){
+  var s = e.target.closest('[data-season]');
+  if (s){ state.season = s.dataset.season; if (state.season==='summer') state.studs='all'; update(); return; }
+  var st = e.target.closest('[data-studs]');
+  if (st){ state.studs = st.dataset.studs; update(); return; }
+  var tg = e.target.closest('[data-tag]');
+  if (tg){ currentTags[+tg.dataset.tag].c(); update(); return; }
+  if (e.target.closest('[data-reset]')){ resetAll(); return; }
+});
+
+function resetAll(){
+  var sort = state.sort;
+  state = defaults(); state.sort = sort;
+  $('#carBrand').value=''; onBrand(); $('#hWidth').value=''; $('#hProfile').value=''; $('#hDia').value='';
+  update();
+}
+$('#carReset').addEventListener('click', function(){ state.car=null; update(); });
+
+// Карточки
+grid.addEventListener('click', function(e){
+  var btn = e.target.closest('[data-act]'); if (!btn) return;
+  var card = btn.closest('.card'), id = card.dataset.id;
+  var q = cardQty[id] || 4, act = btn.dataset.act;
+  if (act==='dec' || act==='inc'){
+    q = Math.max(1, Math.min(8, q + (act==='inc'?1:-1)));
+    cardQty[id] = q;
+    $('output',card).textContent = q;
+    $('[data-act="dec"]',card).disabled = q<=1;
+    $('[data-act="inc"]',card).disabled = q>=8;
+  } else if (act==='add'){
+    addToCart(id, q);
+    btn.classList.remove('spin'); void btn.offsetWidth; btn.classList.add('spin');
+  }
+});
+$('#moreBtn').addEventListener('click', appendMore);
+
+/* ========================== Подбор (Hero) ========================== */
+var pickTab = 'car';
+var carBrand = $('#carBrand'), carModel = $('#carModel'), carYear = $('#carYear');
+var carBrands = CARS.map(function(c){return c.brand;}).filter(function(v,i,a){return a.indexOf(v)===i;}).sort();
+fillSelect(carBrand, carBrands, 'Выберите марку');
+
+function onBrand(){
+  var b = carBrand.value;
+  var models = CARS.filter(function(c){return c.brand===b;}).map(function(c){return c.model;}).filter(function(v,i,a){return a.indexOf(v)===i;});
+  fillSelect(carModel, models, b ? 'Выберите модель' : 'Модель');
+  carModel.disabled = !b;
+  fillSelect(carYear, [], 'Год'); carYear.disabled = true;
+  $('#pickMsg').textContent = '';
+}
+carBrand.addEventListener('change', onBrand);
+carModel.addEventListener('change', function(){
+  var b = carBrand.value, m = carModel.value, years = [];
+  CARS.forEach(function(c){
+    if (c.brand===b && c.model===m) for (var y=c.years[1]; y>=c.years[0]; y--) if (years.indexOf(y)===-1) years.push(y);
+  });
+  years.sort(function(a,b){return b-a;});
+  fillSelect(carYear, years, m ? 'Выберите год' : 'Год');
+  carYear.disabled = !m;
+  $('#pickMsg').textContent = '';
+});
+carYear.addEventListener('change', function(){ $('#pickMsg').textContent=''; });
+
+function setTab(name){
+  pickTab = name;
+  ['car','size'].forEach(function(n){
+    var t = $('#tab-'+n), on = n===name;
+    t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+    $('#panel-'+n).hidden = !on;
+  });
+  $('#pickMsg').textContent = '';
+}
+$$('.tab').forEach(function(t){
+  t.addEventListener('click', function(){ setTab(t.id.replace('tab-','')); });
+  t.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight' || e.key==='ArrowLeft'){ var n = pickTab==='car'?'size':'car'; setTab(n); $('#tab-'+n).focus(); }
+  });
+});
+
+$('#pickForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if (pickTab==='car'){
+    var b=carBrand.value, m=carModel.value, y=+carYear.value;
+    if (!b || !m || !y){ $('#pickMsg').textContent = 'Выберите марку, модель и год выпуска 🙂'; return; }
+    var entry = CARS.filter(function(c){ return c.brand===b && c.model===m && y>=c.years[0] && y<=c.years[1]; })[0];
+    state.car = {label: b+' '+m+' '+y, sizes: entry.sizes.slice()};
+    state.width=''; state.profile=''; state.diameters={};
+  } else {
+    state.car = null;
+    state.width = $('#hWidth').value; state.profile = $('#hProfile').value;
+    state.diameters = {}; if ($('#hDia').value) state.diameters[$('#hDia').value] = true;
+  }
+  update();
+  $('#catalog').scrollIntoView({behavior:'smooth'});
+});
+
+/* ========================== Панели, меню, корзина ========================== */
+var overlay = $('#overlay'), cartEl = $('#cart'), filtersEl = $('#filters'), lastFocus = null;
+function openPanel(p){
+  lastFocus = document.activeElement;
+  p.classList.add('open');
+  if (p===cartEl) p.setAttribute('aria-hidden','false');
+  overlay.classList.add('show'); document.body.classList.add('lock');
+  setTimeout(function(){ var c=$('[data-close]',p); if (c) c.focus(); }, 60);
+}
+function closePanels(){
+  var wasOpen = cartEl.classList.contains('open') || filtersEl.classList.contains('open');
+  cartEl.classList.remove('open'); cartEl.setAttribute('aria-hidden','true');
+  filtersEl.classList.remove('open');
+  overlay.classList.remove('show'); document.body.classList.remove('lock');
+  if (wasOpen && lastFocus && lastFocus.focus) lastFocus.focus();
+}
+$('#cartBtn').addEventListener('click', function(){ closeMenu(); openPanel(cartEl); });
+$('#filtersBtn').addEventListener('click', function(){ openPanel(filtersEl); });
+overlay.addEventListener('click', closePanels);
+$$('[data-close]').forEach(function(b){ b.addEventListener('click', closePanels); });
+$('#goPick').addEventListener('click', function(){ closePanels(); $('#picker').scrollIntoView({behavior:'smooth'}); });
+
+$('#cartList').addEventListener('click', function(e){
+  var b = e.target.closest('[data-rm]'); if (b) removeFromCart(b.dataset.rm);
+});
+
+var dlg = $('#confirm');
+$('#clearCart').addEventListener('click', function(){
+  if (typeof dlg.showModal !== 'function'){ if (window.confirm('Очистить корзину?')) clearCart(); return; }
+  dlg.returnValue = '';
+  dlg.showModal();
+});
+dlg.addEventListener('close', function(){ if (dlg.returnValue==='yes') clearCart(); });
+
+// Ловушка фокуса в корзине
+cartEl.addEventListener('keydown', function(e){
+  if (e.key!=='Tab') return;
+  var f = $$('button:not([disabled])', cartEl).filter(function(el){ return el.offsetParent!==null; });
+  if (!f.length) return;
+  var first=f[0], last=f[f.length-1];
+  if (e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+});
+
+// Мобильное меню
+var burger = $('#burger'), nav = $('#nav');
+function closeMenu(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+burger.addEventListener('click', function(){
+  var open = !nav.classList.contains('open');
+  nav.classList.toggle('open', open); burger.setAttribute('aria-expanded', open);
+});
+$$('a', nav).forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+document.addEventListener('keydown', function(e){
+  if (e.key==='Escape' && !(dlg.open)){ closePanels(); closeMenu(); }
+});
+
+// Toast
+var toastTimer;
+function toast(msg){
+  var t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* ========================== Старт ========================== */
+$('#year').textContent = new Date().getFullYear();
+update();
+renderCartBadge();
+renderCart();
+})();
+</script>
+</body>
+</html>
